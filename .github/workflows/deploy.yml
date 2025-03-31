@@ -23,11 +23,8 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Force update GitHub Actions
-        run: sudo apt-get update && sudo apt-get upgrade -y
-
       - name: Upload production-ready build files
-        uses: actions/upload-artifact@latest
+        uses: actions/upload-artifact@v3
         with:
           name: production-files
           path: ./dist
@@ -40,7 +37,7 @@ jobs:
 
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@latest
+        uses: actions/download-artifact@v3
         with:
           name: production-files
           path: ./dist
